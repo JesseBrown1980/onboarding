@@ -1,0 +1,22 @@
+version: "3"
+services:
+  server:
+    image: node:18
+    environment:
+      - SESSION_SECRET=notsecure
+    volumes:
+      - ./server/:/app
+    working_dir: /app
+    command: ["sh", "-c", "yarn && yarn debug"]
+    ports:
+      - "8080:8080"
+  client:
+    image: node:18
+    environment:
+      - BE_HOST=http://server
+    volumes:
+      - ./client/:/app
+    working_dir: /app
+    command: ["sh", "-c", "yarn && yarn start"]
+    ports:
+      - "3000:3000"
