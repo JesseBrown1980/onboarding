@@ -6,8 +6,6 @@
     "postinstall": "yarn seed",
     "start": "nodemon ./index.js",
     "debug": "nodemon  --inspect ./index.js",
-    "test": "cross-env DATABASE_FILE=':memory:' SESSION_SECRET=notsecure jest --injectGlobals=false --runInBand",
-    "test-junit": "cross-env DATABASE_FILE=':memory:' SESSION_SECRET=notsecure jest --reporters=default --reporters=jest-junit --injectGlobals=false --runInBand --detectOpenHandles --forceExit",
     "seed": "node db/seed.js"
   },
   "dependencies": {
